@@ -1,4 +1,5 @@
-# Our Lovely API (Thanks for the assist, Dan K of empanada fame!)
+# Our Lovely API
+(Huge thanks to Dan K, of empañada fame, for telling us to Google the ```--api``` flag!)
 
 ## rails routes =>
 ![routes](https://cdn-pro.dprcdn.net/files/acc_559486/Xykogy)
