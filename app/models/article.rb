@@ -1,18 +1,20 @@
-class ApplicationController < ActionController::API
-  include Response
+class Article < ApplicationRecord
+  belongs_to :scrollio
 
-  require 'uri'
+  def format_me_baby
+    { title: self.title, body: self.body }
+  end
 
-  def title(article_url)
+  def title
     mechanize = Mechanize.new
-    page = mechanize.get(article_url)
+    page = mechanize.get(self.url)
     page.title
   end
 
-  def body(article_url)
-    url = URI.parse(article_url)
+  def body
+    url = URI.parse(self.url)
     mechanize = Mechanize.new
-    page = mechanize.get(article_url)
+    page = mechanize.get(url)
 
     if url.hostname == "www.cnn.com"
       selector = 'div .zn-body__paragraph'
