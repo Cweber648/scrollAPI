@@ -1,11 +1,8 @@
 # Our Lovely API
 (Huge thanks to Dan K, of empañada fame, for telling us to Google the ```--api``` flag!)
 
-## rails routes =>
-![routes](https://cdn-pro.dprcdn.net/files/acc_559486/Xykogy)
-
 ## Groovy. How does it work?
-### Setup:
+### Setup (if you want to play with it locally):
 * rails db:create
 * rails db:migrate
 * rails db:seed
@@ -73,11 +70,12 @@ It also sends back this JSON as a response:
 }
 ```
 
-That's all.
-
 If you want to mess around with this stuff, type ```brew install httpie```, and then you can type either of these routes in the console, assuming you have created, migrated, seeded, and started up the rails server:
 * http :3000/scrollios/1
 * http POST :3000/scrollios/1/articles url=http://www.whateveryou_choose.com
 * or
 * http https://desolate-oasis-97513.herokuapp.com/scrollios/1
 * http https://desolate-oasis-97513.herokuapp.com/scrollios/1/articles url=http://www.whatever.com
+
+We currently have just two routes. Eventually we'll need to delete all the articles. (MVP looks like it'll only need three routes! Are we cheating?) Bonus points for deleting an indiviual article. And super fabulous sparkly bonus points for modifying the order of articles in a scroll. Here are our routes:
+![routes](https://cdn-pro.dprcdn.net/files/acc_559486/Xykogy)
