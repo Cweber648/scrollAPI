@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :scrollios do
-    resources :articles
+  resources :scrollios, only: [:show] do
+    resources :articles, only: [:create]
   end
 
 end
