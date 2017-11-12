@@ -1,6 +1,9 @@
 class Article < ApplicationRecord
   belongs_to :scrollio
 
+  validates :url, uniqueness: { scope: :scrollio,
+    message: "is already part of your Scroll"}
+
   def format_me_baby
     { title: self.title, body: self.body }
   end
