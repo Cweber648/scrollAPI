@@ -13,8 +13,9 @@
 * rails s
 
 ### Making a Request to Our API:
-The GET route for showing an entire scroll:
+The GET route for showing an entire scroll (local and Herokufied):
 * localhost:3000/scrollios/1
+* https://desolate-oasis-97513.herokuapp.com/scrollios/1
 
 This returns a JSON object that's a collection of articles. Currently we're just sending back title and body, but eventually we could add in author and source.
 So here's what it'd look like with two articles:
@@ -55,8 +56,9 @@ So here's what it'd look like with two articles:
     }
 ]
 ```
-And, our POST route for adding an article:
+And, our POST route for adding an article (local and Herokufied):
 * localhost:3000/scrollios/1/articles url=http://www.whatever_thing_yer_using.com/yep
+* https://desolate-oasis-97513.herokuapp.com/scrollios/1/articles url=http://www.whatever_thing_yer_using.com/yep
 
 This instantiates an Article object in Rubyland and adds it to our database. (No error handling yet.)
 It also sends back this JSON as a response:
