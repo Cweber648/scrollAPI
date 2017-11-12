@@ -1,8 +1,9 @@
 # Our Lovely API
-(Huge thanks to Dan K, of empañada fame, for telling us to Google the ```--api``` flag!)
+(Huge thanks to Dan K, of empañada fame, for telling us to Google the ```--api``` flag! And just for being a solid human in general!)
 
 ## Groovy. How does it work?
-### Setup (if you want to play with it locally):
+### Setup:
+(This is only necessary if you want to play with our API locally. It's working fine and dandy on Heroku in its current form.)
 * rails db:create
 * rails db:migrate
 * rails db:seed
@@ -11,12 +12,12 @@
 * rails s
 
 ### Making a Request to Our API:
-The GET route for showing an entire scroll (local and Herokufied):
-* localhost:3000/scrollios/1
+The GET route for showing an entire scroll (Herokufied and for local funtimes):
 * https://desolate-oasis-97513.herokuapp.com/scrollios/1
+* localhost:3000/scrollios/1
 
-This returns a JSON object that's a collection of articles. Currently we're just sending back title and body, but eventually we could add in author and source.
-So here's what it'd look like with two articles:
+This returns a JSON object that's a collection of articles for a given Scroll. Currently we're just sending back title and body, but eventually we could add in author and source.
+Here's what it'd look like if our Scroll object with an ID of 1 is requested, assuming it has two articles associated with it:
 ```
 [
     {
@@ -54,11 +55,11 @@ So here's what it'd look like with two articles:
     }
 ]
 ```
-And, our POST route for adding an article (local and Herokufied):
-* localhost:3000/scrollios/1/articles url=http://www.whatever_thing_yer_using.com/yep
+And, our POST route for adding an article (Herokufied and local):
 * https://desolate-oasis-97513.herokuapp.com/scrollios/1/articles url=http://www.whatever_thing_yer_using.com/yep
+* localhost:3000/scrollios/1/articles url=http://www.whatever_thing_yer_using.com/yep
 
-This instantiates an Article object in Rubyland and adds it to our database. (No error handling yet.)
+This instantiates an Article object in Rubyland, associates it with the scroll_id from the route, and adds it to our database. (No error handling or validations yet.)
 It also sends back this JSON as a response:
 ```
 {
@@ -77,5 +78,5 @@ If you want to mess around with this stuff, type ```brew install httpie```, and 
 * http https://desolate-oasis-97513.herokuapp.com/scrollios/1
 * http https://desolate-oasis-97513.herokuapp.com/scrollios/1/articles url=http://www.whatever.com
 
-We currently have just two routes. Eventually we'll need to delete all the articles. (MVP looks like it'll only need three routes! Are we cheating?) Bonus points for deleting an indiviual article. And super fabulous sparkly bonus points for modifying the order of articles in a scroll. Here are our routes:
+We currently have just two routes. Eventually we'll need to delete all the articles. (MVP looks like it'll only need three routes! Are we cheating? Or just winning?) Bonus points for deleting an individual article. And super fabulous sparkly bonus points for modifying the order of articles in a scroll. Here are our routes:
 ![routes](https://cdn-pro.dprcdn.net/files/acc_559486/Xykogy)
