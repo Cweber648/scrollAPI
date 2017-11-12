@@ -1,8 +1,6 @@
 class ApplicationController < ActionController::API
   include Response
 
-  require 'uri'
-
   def title(article_url)
     mechanize = Mechanize.new
     page = mechanize.get(article_url)
@@ -10,7 +8,6 @@ class ApplicationController < ActionController::API
   end
 
   def body(article_url)
-    url = URI.parse(article_url)
     mechanize = Mechanize.new
     page = mechanize.get(article_url)
 
