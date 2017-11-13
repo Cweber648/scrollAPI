@@ -19,7 +19,7 @@ class Article < ApplicationRecord
   end
 
   def format_me_baby
-    { title: self.title, body: self.body }
+    { id: self.id, title: self.title, body: self.body }
   end
 
   def title
