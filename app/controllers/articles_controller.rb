@@ -10,8 +10,12 @@ class ArticlesController < ApplicationController
     else
       json_response(@article.errors.full_messages, :unprocessable_entity)
     end
-
   end
 
+  def destroy
+    @article = Article.find(params[:id])
+    @article.destroy
+    head :no_content
+  end
 
 end
