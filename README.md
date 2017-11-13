@@ -55,7 +55,7 @@ Here's what it'd look like if our Scroll object with an ID of 1 is requested, as
     }
 ]
 ```
-And, our POST route for adding an article (Herokufied and local):
+Here's our POST route for adding an article (Herokufied and local):
 * https://desolate-oasis-97513.herokuapp.com/scrollios/1/articles url=http://www.whatever_thing_yer_using.com/yep
 * localhost:3000/scrollios/1/articles url=http://www.whatever_thing_yer_using.com/yep
 
@@ -71,12 +71,17 @@ It also sends back this JSON as a response:
 }
 ```
 
+Lastly, our DELETE route is identical to our post route. Since we're using our scrolls sort of like users, when you hit the DELETE /scrollios/:id route, we just destroy all its article and article associations.
+* https://desolate-oasis-97513.herokuapp.com/scrollios/1/articles
+* localhost:3000/scrollios/1/articles
+
+
 If you want to mess around with this stuff, type ```brew install httpie```, and then you can type either of these routes in the console, assuming you have created, migrated, seeded, and started up the rails server:
 * http :3000/scrollios/1
 * http POST :3000/scrollios/1/articles url=http://www.whateveryou_choose.com
+* http DELETE :3000/scrollios/1/articles
 * or
 * http https://desolate-oasis-97513.herokuapp.com/scrollios/1
-* http https://desolate-oasis-97513.herokuapp.com/scrollios/1/articles url=http://www.whatever.com
+* http POST https://desolate-oasis-97513.herokuapp.com/scrollios/1/articles url=http://www.whatever.com
+* http DELETE https://desolate-oasis-97513.herokuapp.com/scrollios/1/articles
 
-We currently have just two routes. Eventually we'll need to delete all the articles. (MVP looks like it'll only need three routes! Are we cheating? Or just winning?) Bonus points for deleting an individual article. And super fabulous sparkly bonus points for modifying the order of articles in a scroll. Here are our routes:
-![routes](https://cdn-pro.dprcdn.net/files/acc_559486/Xykogy)
