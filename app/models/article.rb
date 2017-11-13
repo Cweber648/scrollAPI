@@ -1,6 +1,7 @@
 class Article < ApplicationRecord
   belongs_to :scrollio
 
+  validates :url, presence: true
   validates :url, uniqueness: { scope: :scrollio,
     message: "is already part of your Scroll"}
 
