@@ -19,7 +19,7 @@ class Article < ApplicationRecord
   end
 
   def format_me_baby
-    { id: self.id, title: self.title, body: self.body }
+    { id: self.id, title: self.title, body: self.body, height: self.height }
   end
 
   def title
@@ -62,6 +62,13 @@ class Article < ApplicationRecord
       content << div.text.strip
     end
     content
+  end
+
+  def height
+    body = self.body
+    line_breaks = body.count
+    total_chars = body.join.chars.count
+    (total_chars / 27) * 16
   end
 
 end
