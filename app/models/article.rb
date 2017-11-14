@@ -37,6 +37,22 @@ class Article < ApplicationRecord
       selector = 'div .zn-body__paragraph'
     elsif url.hostname == "www.nytimes.com"
       selector = '.story-body-text'
+    elsif url.hostname == "www.washingtonpost.com"
+      selector = '#article-body p'
+    elsif url.hostname == "www.theatlantic.com"
+      selector = '.article-body p'
+    elsif url.hostname == "www.chicagotribune.com"
+      selector = '.trb_ar_page p'
+    elsif url.hostname == "www.medium.com"
+      selector = '.postArticle-content p'
+    elsif url.hostname == 'www.npr.org'
+      selector = '#storytext p'
+    elsif url.hostname == "www.politico.com"
+      selector = '.story-text > p'
+    elsif url.hostname == 'www.newyorker.com'
+      selector = '#articleBody p'
+    elsif url.hostname == 'www.breitbart.com'
+      return ["Anger nonsense verb verb appeal to emotion.", "Irrational anger, yelling, hypertension, Obama and Hillary.", "Nonsensical conclusion, etc.", "(Article conveniently summarized.)"]
     else
       selector = 'p'
     end

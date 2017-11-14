@@ -77,9 +77,9 @@ Lastly, our DELETE route is identical to our post route. Since we're using our s
 
 
 If you want to mess around with this stuff, type ```brew install httpie```, and then you can type either of these routes in the console, assuming you have created, migrated, seeded, and started up the rails server:
-* http :3000/scrollios/1
-* http POST :3000/scrollios/1/articles url=http://www.whateveryou_choose.com
-* http DELETE :3000/scrollios/1
+* http http://localhost:3000/scrollios/1
+* http POST http://localhost:3000/scrollios/1/articles url=http://www.whateveryou_choose.com
+* http DELETE http://localhost:3000/scrollios/1
 * or
 * http https://desolate-oasis-97513.herokuapp.com/scrollios/1
 * http POST https://desolate-oasis-97513.herokuapp.com/scrollios/1/articles url=http://www.whatever.com
