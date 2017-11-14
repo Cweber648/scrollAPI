@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "Routes", type: :routing do
 
   describe 'scrollio' do
-    it 'routes /scrollios/:id to scrollios#show for id' do
+    it 'routes to scrollios#show' do
       expect(:get => "/scrollios/1").to route_to(
         :controller => "scrollios",
         :action => "show",
@@ -11,7 +11,7 @@ RSpec.describe "Routes", type: :routing do
       )
     end
 
-    it 'routes /scrollios/:id to scrollios#destroy for id' do
+    it 'routes to scrollios#destroy' do
       expect(:delete => "/scrollios/1").to route_to(
         :controller => "scrollios",
         :action => "destroy",
@@ -22,7 +22,7 @@ RSpec.describe "Routes", type: :routing do
 
 
   describe 'article' do
-    it 'routes /scrollios/:scrollio_id/articles to articles#create for scrollio_id' do
+    it 'routes to articles#create' do
       expect(:post => "/scrollios/1/articles").to route_to(
         :controller => "articles",
         :action => "create",
@@ -30,7 +30,7 @@ RSpec.describe "Routes", type: :routing do
       )
     end
 
-    it 'routes /scrollios/:scrollio_id/articles/id to articles#destroy for scrollio_id and id' do
+    it 'routes to articles#destroy' do
       expect(:delete => "/scrollios/1/articles/3").to route_to(
         :controller => "articles",
         :action => "destroy",
