@@ -9,6 +9,7 @@ class Article < ApplicationRecord
   validate :url_must_be_valid
 
   def url_must_be_valid
+    if url != ""
       begin
         if open(url).status[0] != "200"
           errors.add(:url, "must be valid")
@@ -16,6 +17,7 @@ class Article < ApplicationRecord
       rescue
         errors.add(:url, "must be valid")
       end
+    end
   end
 
   def format_me_baby
