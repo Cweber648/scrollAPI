@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20171111233151) do
   end
 
   create_table "scrollios", force: :cascade do |t|
-    t.string "name"
+    t.string "device_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
