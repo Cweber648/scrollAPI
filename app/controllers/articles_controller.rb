@@ -1,10 +1,9 @@
 class ArticlesController < ApplicationController
 
   def create
-    frapplyblonk = params[:url]
-    @scrollio = Scrollio.find(params[:scrollio_id])
-
-    @article = Article.new(scrollio: @scrollio, url: frapplyblonk)
+    article_url = params[:url]
+    @scrollio = Scrollio.find_or_create_by(device_identifier: params[:scrollio_id])
+    @article = Article.new(scrollio: @scrollio, url: article_url)
     if @article.save
       json_response(@article, :created)
     else
