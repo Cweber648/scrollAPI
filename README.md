@@ -1,4 +1,4 @@
-# Rails API for the Scroll Your Roll React Native app
+# Rails API for Slow Your Scroll React Native app
 The React Native app that uses this API can be found here:
 
 https://github.com/byzantinist/scroll_react_native
