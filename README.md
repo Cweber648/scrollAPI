@@ -1,23 +1,8 @@
-# Our Lovely API
-(Huge thanks to Dan K, of empañada fame, for telling us to Google the ```--api``` flag! And just for being a solid human in general!)
+# Rails API for the Scroll Your Roll React Native app
+This was created by Matthew Black, Charlie Weber, Eric Chiang, and Michelle DiBiase as part of their final project at Dev Bootcamp. It's currently hosted on Heroku and utilizes a Postgres database.
 
-## Groovy. How does it work?
-### Setup:
-(This is only necessary if you want to play with our API locally. It's working fine and dandy on Heroku in its current form.)
-* rails db:create
-* rails db:migrate
-* rails db:seed
-    * For now we'll just seed our database with just one Scrollio object.
-    * Obvz we won't call this Scrollio, because it's PooprLoopr.
-* rails s
-
-### Making a Request to Our API:
-The GET route for showing an entire scroll (Herokufied and for local funtimes):
-* https://desolate-oasis-97513.herokuapp.com/scrollios/1
-* localhost:3000/scrollios/1
-
-This returns a JSON object that's a collection of articles for a given Scroll. Currently we're just sending back title and body, but eventually we could add in author and source.
-Here's what it'd look like if our Scroll object with an ID of 1 is requested, assuming it has two articles associated with it:
+### Making Requests to Our API:
+The GET route for showing an entire scroll returns a JSON object that's a collection of articles. Here's how the JSON response is formatted:
 ```
 [
     {
@@ -55,33 +40,8 @@ Here's what it'd look like if our Scroll object with an ID of 1 is requested, as
     }
 ]
 ```
-Here's our POST route for adding an article (Herokufied and local):
-* https://desolate-oasis-97513.herokuapp.com/scrollios/1/articles url=http://www.whatever_thing_yer_using.com/yep
-* localhost:3000/scrollios/1/articles url=http://www.whatever_thing_yer_using.com/yep
-
-This instantiates an Article object in Rubyland, associates it with the scroll_id from the route, and adds it to our database. (No error handling or validations yet.)
-It also sends back this JSON as a response:
-```
-{
-    "created_at": "2017-11-12T02:25:59.401Z",
-    "id": 3,
-    "scrollio_id": 1,
-    "updated_at": "2017-11-12T02:25:59.401Z",
-    "url": "http://www.cnn.com/2017/07/17/sport/federer-wimbledon-us-open-grand-slam-twenty/index.html"
-}
-```
-
-Lastly, our DELETE route is identical to our post route. Since we're using our scrolls sort of like users, when you hit the DELETE /scrollios/:id route, we just destroy all its article and article associations.
-* https://desolate-oasis-97513.herokuapp.com/scrollios/1/articles
-* localhost:3000/scrollios/1/articles
+The POST route for adding an article uses an iOS device's unique identifier to associate the new article with the correct scroll, which makes user registration unnecessary.
 
 
-If you want to mess around with this stuff, type ```brew install httpie```, and then you can type either of these routes in the console, assuming you have created, migrated, seeded, and started up the rails server:
-* http http://localhost:3000/scrollios/1
-* http POST http://localhost:3000/scrollios/1/articles url=http://www.whateveryou_choose.com
-* http DELETE http://localhost:3000/scrollios/1
-* or
-* http https://desolate-oasis-97513.herokuapp.com/scrollios/1
-* http POST https://desolate-oasis-97513.herokuapp.com/scrollios/1/articles url=http://www.whatever.com
-* http DELETE https://desolate-oasis-97513.herokuapp.com/scrollios/1
+This API also provides DELETE routes for individual articles and all articles associated with a scroll.
 
