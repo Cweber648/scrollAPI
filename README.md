@@ -1,4 +1,8 @@
 # Rails API for the Scroll Your Roll React Native app
+The React Native app that uses this API can be found here:
+
+https://github.com/byzantinist/scroll_react_native
+
 This was created by Matthew Black, Charlie Weber, Eric Chiang, and Michelle DiBiase as part of their final project at Dev Bootcamp. It's currently hosted on Heroku and utilizes a Postgres database.
 
 ### Making Requests to Our API:
