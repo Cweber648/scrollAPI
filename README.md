@@ -1,11 +1,15 @@
 # Rails API for Slow Your Scroll React Native app
 The React Native app that uses this API can be found here:
 
-https://github.com/byzantinist/scroll_react_native
+https://github.com/byzantinist/slow_your_scroll
+
+Try it out on your iPhone here:
+
+https://itunes.apple.com/us/app/slow-your-scroll/id1316670598?ls=1&mt=8
 
 This was created by Matthew Black, Charlie Weber, Eric Chiang, and Michelle DiBiase as part of their final project at Dev Bootcamp. It's currently hosted on Heroku and utilizes a Postgres database.
 
-### Making Requests to Our API:
+### API Routes:
 The GET route for showing an entire scroll returns a JSON object that's a collection of articles. Here's how the JSON response is formatted:
 ```
 [
